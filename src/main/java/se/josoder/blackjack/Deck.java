@@ -1,3 +1,5 @@
+package se.josoder.blackjack;
+
 import java.util.*;
 
 /**
@@ -23,14 +25,14 @@ public class Deck {
     }
 
     /**
-     * Create a deck based on a set of strings.
-     * The string representation of the card should be in the following form : H1, HJ, HK, HA, C1, C10 etc..
+     * Create a deck in the form of a set of strings.
+     * The string representation of the card should be in the following format : H1, HJ, HK, HA, C1, C10 etc..
      * @param cards
      */
     public Deck(Set<String> cards) throws IllegalArgumentException {
         if (cards == null) throw new IllegalArgumentException("cards cant be null");
 
-        if(cards.size() < 4) throw new IllegalArgumentException("need at least 4 cards");
+        if(cards.size() < 4) throw new IllegalArgumentException("the deck needs at least 4 cards");
 
         deck = new Stack<>();
         for (String card : cards) {
@@ -48,14 +50,6 @@ public class Deck {
         }
     }
 
-    private void validateAndAddCard(String card) {
-        if(ValueMapper.GetValueMapper().containsKey(card)){
-            deck.push(card);
-        } else {
-            System.out.println(card + " is not a valid card");
-        }
-    }
-
     public boolean hasCard() {
         return deck.size() > 0;
     }
@@ -69,5 +63,14 @@ public class Deck {
 
     public Stack<String> getDeck() {
         return deck;
+    }
+
+
+    private void validateAndAddCard(String card) {
+        if(ValueMapper.GetValueMapper().containsKey(card)){
+            deck.push(card);
+        } else {
+            System.out.println(card + " is not a valid card");
+        }
     }
 }

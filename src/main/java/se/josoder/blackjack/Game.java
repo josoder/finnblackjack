@@ -1,18 +1,19 @@
+package se.josoder.blackjack;
+
 /**
  * Created by josoder on 11.04.18.
  */
 public class Game {
-    // set status to be able to test
     public static int TIE = 0;
     public static int PLAYER_WINS = 1;
     public static int DEALER_WINS = 2;
+
 
     private int result = 0;
     private Player dealer;
     private Player player;
     private Deck deck;
-    private boolean gameOver = false;
-    private int round;
+
 
     public Game(Deck deck, String playerName) throws IllegalArgumentException {
         if (deck == null) {
@@ -27,6 +28,10 @@ public class Game {
         this.deck = deck;
     }
 
+    /**
+     * Generate i round of blackjack
+     * @return
+     */
     public int playGame() {
         dealInitial();
 

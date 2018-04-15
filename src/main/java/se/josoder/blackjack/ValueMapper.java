@@ -1,8 +1,12 @@
+package se.josoder.blackjack;
+
 import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by josoder on 10.04.18.
+ * The valuemapper generates a static HashMap where each card in a deck is mapped to its value.
+ * It contains valuable functions for blackjack.
  */
 public class ValueMapper {
     private static String[] SUITS = {"C", "D", "S", "H"};

@@ -1,3 +1,5 @@
+package se.josoder.blackjack;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -47,5 +49,12 @@ public class DeckTest {
         }
 
         Assert.assertFalse(deck.hasCard());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void deckNeedsAtleastFourCards () {
+        HashSet<String> cardset = new HashSet<>(Arrays.asList("H3", "H4", "H5"));
+
+        Deck deck = new Deck(cardset);
     }
 }

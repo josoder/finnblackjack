@@ -1,4 +1,4 @@
-import org.junit.rules.ExpectedException;
+package se.josoder.blackjack;
 
 import java.io.File;
 import java.nio.file.NoSuchFileException;
@@ -11,7 +11,6 @@ public class Parser {
     private String fileName;
     private LinkedHashSet<String> content;
 
-
     public Parser(String fileName){
         if (fileName == null || fileName.isEmpty()) {
             throw new IllegalArgumentException("Filename cant be null or empty!");
@@ -20,14 +19,6 @@ public class Parser {
         this.fileName = fileName;
     }
 
-    private void addContent(String line) {
-        if (line.contains(",")){
-            Arrays.asList(line.split(","))
-                    .forEach(c -> content.add(c.trim()));
-        } else {
-            content.add(line);
-        }
-    }
 
     public LinkedHashSet<String> getContent() throws Exception{
         content = new LinkedHashSet<>();
@@ -51,6 +42,15 @@ public class Parser {
 
 
         return content;
+    }
+
+    private void addContent(String line) {
+        if (line.contains(",")){
+            Arrays.asList(line.split(","))
+                    .forEach(c -> content.add(c.trim()));
+        } else {
+            content.add(line);
+        }
     }
 
 }
